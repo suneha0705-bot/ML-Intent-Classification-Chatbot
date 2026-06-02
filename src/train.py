@@ -5,9 +5,8 @@ import joblib
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
-from sklearn.naive_bayes import MultinomialNB
+from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report
-
 
 # =========================
 # Paths
@@ -34,7 +33,6 @@ os.makedirs(models_dir, exist_ok=True)
 
 print(f"\nLoading dataset from:\n{intents_path}")
 
-
 # =========================
 # Load JSON Dataset
 # =========================
@@ -47,7 +45,6 @@ with open(
 
     data = json.load(file)
 
-
 # =========================
 # Extract Data
 # =========================
@@ -57,13 +54,10 @@ labels = []
 
 for intent in data["intents"]:
 
-    tag = intent["tag"]
-
     for pattern in intent["patterns"]:
 
-        texts.append(pattern)
-        labels.append(tag)
-
+        texts.append(pattern.lower())
+        labels.append(intent["tag"])
 
 # =========================
 # Create DataFrame
@@ -82,7 +76,6 @@ print(f"\nTotal Training Samples: {len(df)}")
 print("\nIntent Counts:\n")
 print(df["intent"].value_counts())
 
-
 # =========================
 # Features & Target
 # =========================
@@ -90,15 +83,17 @@ print(df["intent"].value_counts())
 X = df["text"]
 y = df["intent"]
 
-
 # =========================
 # TF-IDF
 # =========================
 
-vectorizer = TfidfVectorizer()
+vectorizer = TfidfVectorizer(
+    lowercase=True,
+    ngram_range=(1, 2),
+    stop_words="english"
+)
 
 X_vec = vectorizer.fit_transform(X)
-
 
 # =========================
 # Train-Test Split
@@ -114,25 +109,25 @@ X_train, X_test, y_train, y_test = train_test_split(
 print(f"\nTraining Samples: {len(y_train)}")
 print(f"Testing Samples: {len(y_test)}")
 
-
 # =========================
 # Train Model
 # =========================
 
-model = MultinomialNB()
+model = LogisticRegression(
+    max_iter=2000,
+    random_state=42
+)
 
 model.fit(
     X_train,
     y_train
 )
 
-
 # =========================
 # Prediction
 # =========================
 
 y_pred = model.predict(X_test)
-
 
 # =========================
 # Evaluation
@@ -157,7 +152,6 @@ print(
     )
 )
 
-
 # =========================
 # Save Model
 # =========================
@@ -181,7 +175,6 @@ joblib.dump(
     vectorizer,
     vectorizer_path
 )
-
 
 print("\nModel Saved Successfully:")
 print(model_path)

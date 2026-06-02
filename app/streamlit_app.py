@@ -10,10 +10,19 @@ import streamlit as st
 
 st.set_page_config(
     page_title="ML Chatbot",
-    page_icon="🤖"
+    page_icon="🤖",
+    layout="centered"
 )
 
 st.title("🤖 ML Intent Classification Chatbot")
+
+# =========================
+# Clear Chat Button
+# =========================
+
+if st.button("🗑 Clear Chat"):
+    st.session_state.messages = []
+    st.rerun()
 
 # =========================
 # Paths
@@ -46,7 +55,7 @@ vectorizer = joblib.load(
 )
 
 # =========================
-# Load Dataset
+# Load Intents
 # =========================
 
 with open(
@@ -66,7 +75,6 @@ with open(
 # =========================
 
 if "messages" not in st.session_state:
-
     st.session_state.messages = []
 
 # =========================
@@ -97,7 +105,7 @@ user_input = st.chat_input(
 
 if user_input:
 
-    # Show user message
+    # Save User Message
     st.session_state.messages.append(
         {
             "role": "user",
@@ -105,33 +113,54 @@ if user_input:
         }
     )
 
-    # Convert text to vector
+    # Convert Text To Vector
     user_vector = vectorizer.transform(
-        [user_input]
+        [user_input.lower()]
     )
 
-    # Predict intent
+    # Predict Intent
     predicted_intent = model.predict(
         user_vector
     )[0]
 
-    # Default response
+    # Confidence Score
+    confidence = max(
+        model.predict_proba(
+            user_vector
+        )[0]
+    )
+
+    # Default Response
     response = (
         "Sorry, I don't understand."
     )
 
-    # Find matching response
-    for intent in data["intents"]:
+    # Unknown Intent Detection
+    if confidence < 0.30:
 
-        if intent["tag"] == predicted_intent:
+        response = (
+            "Sorry, I don't understand that question."
+        )
 
-            response = random.choice(
-                intent["responses"]
-            )
+    else:
 
-            break
+        for intent in data["intents"]:
 
-    # Store bot response
+            if intent["tag"] == predicted_intent:
+
+                response = random.choice(
+                    intent["responses"]
+                )
+
+                break
+
+    # Add Debug Information
+    response += (
+        f"\n\n🔹 Predicted Intent: {predicted_intent}"
+        f"\n🔹 Confidence: {confidence:.2f}"
+    )
+
+    # Save Bot Response
     st.session_state.messages.append(
         {
             "role": "assistant",

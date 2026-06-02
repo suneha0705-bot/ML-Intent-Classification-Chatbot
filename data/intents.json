@@ -3,127 +3,160 @@
     {
       "tag": "greeting",
       "patterns": [
-        "Hi",
-        "Hello",
-        "Hey",
-        "Is anyone there?",
-        "Good day",
-        "Howdy",
-        "Hola",
-        "Hi there",
-        "Greetings",
-        "What's up",
-        "Yo"
+        "hi",
+        "hello",
+        "hey",
+        "good morning",
+        "good evening",
+        "good afternoon",
+        "greetings",
+        "howdy",
+        "hi there",
+        "hello there"
       ],
       "responses": [
-        "Hello! I am your AI assistant. How can I help you today?",
-        "Hi there! What can I do for you today?",
-        "Greetings! How can I assist you on this fine day?",
-        "Hey! Nice to meet you. How can I help you today?"
+        "Hello! How can I help you today?",
+        "Hi there! What can I do for you?",
+        "Greetings! How may I assist you?"
       ]
     },
     {
       "tag": "goodbye",
       "patterns": [
-        "Bye",
-        "See you later",
-        "Goodbye",
-        "I am leaving",
-        "Have a good day",
-        "Talk to you later",
-        "Farewell",
-        "I'm off",
-        "Catch you later"
+        "bye",
+        "goodbye",
+        "see you later",
+        "talk to you later",
+        "have a nice day",
+        "farewell",
+        "i am leaving",
+        "catch you later"
       ],
       "responses": [
-        "Goodbye! Have a wonderful day!",
-        "See you later! Feel free to chat again anytime.",
-        "Farewell! Take care and have a great time.",
-        "Bye! Looking forward to our next conversation."
+        "Goodbye!",
+        "See you later!",
+        "Have a great day!"
       ]
     },
     {
       "tag": "thanks",
       "patterns": [
-        "Thanks",
-        "Thank you",
-        "That's helpful",
-        "Awesome, thanks",
-        "Thank you so much",
-        "Much appreciated",
-        "Thanks for the help",
-        "You're great"
+        "thanks",
+        "thank you",
+        "thanks a lot",
+        "thank you so much",
+        "much appreciated",
+        "awesome thanks",
+        "great thanks"
       ],
       "responses": [
-        "You are very welcome! Happy to help.",
-        "Anytime! Let me know if there's anything else.",
-        "My pleasure! Glad I could assist.",
-        "You're welcome! Have a great day ahead."
+        "You're welcome!",
+        "Happy to help!",
+        "Anytime!"
       ]
     },
     {
-      "tag": "about",
+      "tag": "python",
       "patterns": [
-        "Who are you?",
-        "What are you?",
-        "What is your name?",
-        "Tell me about yourself",
-        "What do you do?",
-        "Are you a bot?",
-        "Describe yourself"
+        "python",
+        "what is python",
+        "python programming",
+        "python language",
+        "learn python",
+        "python tutorial",
+        "python course",
+        "python coding",
+        "python basics",
+        "python features",
+        "tell me about python",
+        "explain python"
       ],
       "responses": [
-        "I am Antigravity, a smart Intent Classification Chatbot powered by Machine Learning!",
-        "I'm an AI companion trained to understand your intents and answer your questions.",
-        "You can call me Antigravity! I use Natural Language Processing to classify messages and respond appropriately."
+        "Python is a popular programming language used for web development, data science, AI, automation, and more."
       ]
     },
     {
-      "tag": "help",
+      "tag": "numpy",
       "patterns": [
-        "Help",
-        "Can you help me?",
-        "What can you do?",
-        "Support",
-        "I need assistance",
-        "Show me options",
-        "How to use this?"
+        "numpy",
+        "what is numpy",
+        "numpy library",
+        "learn numpy",
+        "numpy tutorial",
+        "numpy arrays",
+        "numpy basics",
+        "numpy in python",
+        "tell me about numpy",
+        "explain numpy"
       ],
       "responses": [
-        "I can help you with basic queries, tell you jokes, provide info about myself, or just chat! Try asking: 'Who are you?' or 'Tell me a joke'.",
-        "I'm here to assist! You can ask me greetings, about my identity, ask for a joke, or say goodbye when you're done.",
-        "Sure! I can classify your intents in real-time. Try typing anything and see how I categorize it!"
+        "NumPy is a Python library used for numerical computing and working with arrays."
+      ]
+    },
+    {
+      "tag": "pandas",
+      "patterns": [
+        "pandas",
+        "what is pandas",
+        "pandas library",
+        "learn pandas",
+        "pandas tutorial",
+        "pandas dataframe",
+        "pandas basics",
+        "tell me about pandas",
+        "explain pandas",
+        "pandas in python"
+      ],
+      "responses": [
+        "Pandas is a Python library used for data analysis and data manipulation."
+      ]
+    },
+    {
+      "tag": "machine_learning",
+      "patterns": [
+        "machine learning",
+        "what is machine learning",
+        "ml",
+        "learn machine learning",
+        "machine learning tutorial",
+        "machine learning basics",
+        "machine learning course",
+        "tell me about machine learning",
+        "explain machine learning",
+        "machine learning meaning"
+      ],
+      "responses": [
+        "Machine Learning is a branch of AI that enables computers to learn patterns from data and make predictions."
       ]
     },
     {
       "tag": "joke",
       "patterns": [
-        "Tell me a joke",
-        "Make me laugh",
-        "Do you know any jokes?",
-        "Joke please",
-        "Say something funny"
+        "tell me a joke",
+        "joke",
+        "make me laugh",
+        "say something funny",
+        "funny joke",
+        "do you know a joke"
       ],
       "responses": [
-        "Why don't scientists trust atoms? Because they make up everything!",
-        "Why did the scarecrow win an award? Because he was outstanding in his field!",
-        "Why don't skeletons fight each other? They don't have the guts!",
-        "What do you call a fake noodle? An impasta!",
-        "Why did the bicycle fall over? Because it was two-tired!"
+        "Why do programmers prefer dark mode? Because light attracts bugs!",
+        "Why did the computer get cold? It left its Windows open!",
+        "Why do Java developers wear glasses? Because they don't C#."
       ]
     },
     {
-      "tag": "creator",
+      "tag": "about",
       "patterns": [
-        "Who created you?",
-        "Who made you?",
-        "Who is your developer?",
-        "Who built you?"
+        "who are you",
+        "what are you",
+        "tell me about yourself",
+        "your name",
+        "who made you",
+        "what do you do"
       ],
       "responses": [
-        "I was developed by a team of machine learning enthusiasts who wanted to build an awesome intent classifier!",
-        "I am built using Python, Scikit-Learn, and Streamlit. My creators are passionate developers!",
-        "A brilliant developer designed and coded me using state-of-the-art NLP techniques."
+        "I am an ML Intent Classification Chatbot built using Python, Scikit-Learn, and Streamlit."
       ]
     }
   ]
