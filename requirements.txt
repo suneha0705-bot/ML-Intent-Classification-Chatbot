@@ -1,0 +1,27 @@
+pandas
+numpy
+scikit-learn
+joblib
+streamlit
+
+ML-Intent-Classification-Chatbot/
+│
+├── app/
+│   └── streamlit_app.py
+│
+├── data/
+│   └── intents.json
+│
+├── models/
+│   ├── chatbot_model.pkl
+│   └── vectorizer.pkl
+│
+├── src/
+│   ├── train.py
+│   ├── chatbot.py
+│   ├── preprocess.py
+│   └── predict.py
+│
+├── requirements.txt
+├── README.md
+└── .gitignore
